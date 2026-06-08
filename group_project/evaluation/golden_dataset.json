@@ -13,5 +13,65 @@
     "question": "Danh mục các chất ma tuý thuộc nhóm I theo quy định pháp luật Việt Nam gồm những chất nào?",
     "expected_answer": "Nhóm I gồm các chất ma tuý tuyệt đối cấm sử dụng trong y học và đời sống, bao gồm heroin, cocaine, methamphetamine, MDMA (ecstasy), cannabis (cần sa), và các chất tương tự.",
     "expected_context": "Nghị định 57/2022/NĐ-CP, Phụ lục I"
+  },
+  {
+    "question": "Ca sĩ Miu Lê (Lê Ánh Nhật) bị bắt quả tang sử dụng ma túy ở đâu và dương tính với những chất nào?",
+    "expected_answer": "Ca sĩ Miu Lê bị bắt quả tang sử dụng trái phép chất ma túy tại bãi tắm Tùng Thu, thuộc Đặc khu Cát Hải, Hải Phòng, và dương tính với Methamphetamine (ma túy đá), Ketamine và MDMA (thuốc lắc).",
+    "expected_context": "Toàn cảnh vụ Miu Lê bị bắt quả tang dùng ma túy"
+  },
+  {
+    "question": "Hình phạt cao nhất đối với tội tàng trữ trái phép chất ma túy là gì?",
+    "expected_answer": "Hình phạt cao nhất đối với tội tàng trữ trái phép chất ma túy (Điều 249) là tù chung thân.",
+    "expected_context": "12_2017_QH14_354053, Điều 249"
+  },
+  {
+    "question": "Tội tàng trữ trái phép chất ma túy có thể bị phạt tiền đến mức nào?",
+    "expected_answer": "Người phạm tội tàng trữ trái phép chất ma túy còn có thể bị phạt tiền từ 5.000.000 đồng đến 50.000.000 đồng.",
+    "expected_context": "12_2017_QH14_354053, Điều 249"
+  },
+  {
+    "question": "Nghệ sĩ nào bị khởi tố và bắt tạm giam trong chuyên án ma túy của Công an TP.HCM vào tháng 5 năm 2026?",
+    "expected_answer": "Ca sĩ Long Nhật (Đinh Long Nhật) và ca sĩ Sơn Ngọc Minh bị khởi tố và bắt tạm giam về hành vi 'Tổ chức sử dụng trái phép chất ma túy'.",
+    "expected_context": "Khởi tố, bắt tạm giam ca sĩ Long Nhật, Sơn Ngọc Minh vì tổ chức sử dụng ma túy"
+  },
+  {
+    "question": "Cai nghiện bắt buộc áp dụng đối với người nghiện ma túy từ bao nhiêu tuổi?",
+    "expected_answer": "Người nghiện ma túy từ đủ 12 tuổi đến dưới 18 tuổi hoặc từ đủ 18 tuổi trở lên bị áp dụng biện pháp cai nghiện bắt buộc khi thuộc các trường hợp quy định.",
+    "expected_context": "Luật Phòng chống ma tuý 2021"
+  },
+  {
+    "question": "Biện pháp quản lý người sử dụng trái phép chất ma túy được thực hiện trong thời hạn bao lâu?",
+    "expected_answer": "Thời hạn quản lý người sử dụng trái phép chất ma túy là 01 năm kể từ ngày có quyết định quản lý.",
+    "expected_context": "Luật Phòng chống ma tuý 2021"
+  },
+  {
+    "question": "Ai là người có thẩm quyền quyết định đưa người nghiện ma túy vào cơ sở cai nghiện bắt buộc?",
+    "expected_answer": "Tòa án nhân dân cấp huyện có thẩm quyền quyết định áp dụng biện pháp xử lý hành chính đưa vào cơ sở cai nghiện bắt buộc.",
+    "expected_context": "Luật Phòng chống ma tuý 2021"
+  },
+  {
+    "question": "Kiều Quốc Nhã đóng vai trò gì trong vụ bắt giữ ca sĩ Long Nhật và Sơn Ngọc Minh?",
+    "expected_answer": "Kiều Quốc Nhã được xác định là một trong những mắt xích then chốt chuyên cung cấp ma túy cho nhóm của các ca sĩ này tổ chức sử dụng.",
+    "expected_context": "Khởi tố, bắt tạm giam ca sĩ Long Nhật, Sơn Ngọc Minh vì tổ chức sử dụng ma túy"
+  },
+  {
+    "question": "Công ty quản lý của ca sĩ Miu Lê là đơn vị nào và họ phản hồi như thế nào về ồn ào?",
+    "expected_answer": "Công ty quản lý của Miu Lê là KIM Entertainment. Họ chân thành cáo lỗi và cho biết đang khẩn trương phối hợp với cơ quan chức năng để xác minh và xử lý sự việc.",
+    "expected_context": "Toàn cảnh vụ Miu Lê bị bắt quả tang dùng ma túy"
+  },
+  {
+    "question": "Theo Nghị định 105/2021/NĐ-CP, việc xét nghiệm chất ma túy trong cơ thể được thực hiện đối với những ai?",
+    "expected_answer": "Xét nghiệm chất ma túy trong cơ thể được thực hiện đối với người bị phát hiện sử dụng trái phép chất ma túy, người có dấu hiệu sử dụng trái phép chất ma túy, hoặc theo yêu cầu của cơ quan có thẩm quyền.",
+    "expected_context": "Nghị định 105/2021/NĐ-CP"
+  },
+  {
+    "question": "Cơ quan nào có thẩm quyền lập hồ sơ đề nghị áp dụng biện pháp đưa vào cơ sở cai nghiện bắt buộc?",
+    "expected_answer": "Chủ tịch Ủy ban nhân dân cấp xã nơi người đó cư trú hoặc công an cấp xã có thẩm quyền lập hồ sơ đề nghị đưa vào cơ sở cai nghiện bắt buộc.",
+    "expected_context": "Nghị định 105/2021/NĐ-CP"
+  },
+  {
+    "question": "Giao dịch dân sự liên quan đến việc mua bán chất ma túy có hiệu lực pháp lý không?",
+    "expected_answer": "Giao dịch dân sự liên quan đến mua bán chất ma túy là vô hiệu do vi phạm điều cấm của luật và đạo đức xã hội.",
+    "expected_context": "Luật Phòng chống ma tuý 2021"
   }
 ]

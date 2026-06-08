@@ -517,34 +517,104 @@ run_dashboard()
 
 ### Kiến Trúc Hệ Thống
 
-```
-[Vẽ diagram kiến trúc ở đây]
+Hệ thống RAG Pipeline v2 được thiết kế theo luồng dữ liệu dưới đây:
+
+```mermaid
+graph TD
+    %% Tầng Dữ liệu đầu vào
+    subgraph Ingestion ["1. Data Ingestion & Conversion"]
+        A1[Legal Documents: PDF/DOCX] -->|MarkItDown| B1[Standardized Markdown]
+        A2[News Articles: JSON] -->|Extract JSON| B1
+    end
+
+    %% Tầng Chunking & Indexing
+    subgraph Indexing ["2. Chunking & Indexing"]
+        B1 -->|Custom Regex Splitter| C1[Legal Article Chunks]
+        B1 -->|Recursive Character Splitter| C2[News Chunks]
+        C1 & C2 -->|sentence-transformers/all-MiniLM-L6-v2| D1[384-dim Embeddings]
+        D1 -->|Index Objects| E1[(Weaviate Cloud)]
+        C1 & C2 -->|Local backup & Lexical Index| E2[(rank-bm25 index & JSON DB)]
+    end
+
+    %% Tầng Retrieval
+    subgraph Retrieval ["3. Hybrid Retrieval & Reranking"]
+        Q[User Query] -->|Dense Query| E1
+        Q -->|Sparse Query| E2
+        E1 -->|Semantic Results| F1[Retrieve top_k*2]
+        E2 -->|Lexical Results| F2[Retrieve top_k*2]
+        F1 & F2 -->|Rerank RRF| G1[Merged Candidates]
+        G1 -->|Jina Reranker v2 API| H1[Reranked Candidates]
+        H1 -->|Check score_threshold >= 0.3| I1{Score >= Threshold?}
+        I1 -->|Yes| J1[Top Chunks]
+        I1 -->|No| J2[PageIndex Vectorless Fallback]
+    end
+
+    %% Tầng Sinh câu trả lời
+    subgraph Generation ["4. Generation with Citation"]
+        J1 & J2 -->|Lost in the middle Reordering| K1[Reordered Context Chunks]
+        K1 -->|System Prompt & OpenRouter| L1[OpenRouter: gpt-4o-mini]
+        L1 -->| Vietnamese Answer | Out[Vietnamese Answer with Citations]
+    end
 ```
 
 ---
 
-### Phân Công Công Việc
+### Phân Công Công Việc & Trạng Thái
 
 | Thành viên | MSSV | Nhiệm vụ | Trạng thái |
 |-----------|------|----------|------------|
-| | | | |
-| | | | |
-| | | | |
-| | | | |
+| **Trần Quốc Khánh** | **2A202600679** | Task 1 — Thu thập ≥3 văn bản pháp luật (DOCX/DOC) | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Task 2 — Crawl ≥5 bài báo nghệ sĩ/ma tuý (JSON) | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Task 3 — Convert DOCX/JSON → Markdown (MarkItDown) | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Task 4 — Chunking (Regex per Điều) + Embedding (MiniLM) + Index Weaviate | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Task 5 — Semantic Search (Weaviate near_vector + local NumPy fallback) | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Task 6 — Lexical Search BM25 (BM25Okapi) | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Task 7 — Reranking: RRF + MMR + Cross-encoder (Jina fallback) | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Task 8 — PageIndex Vectorless Search (local BM25 fallback) | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Task 9 — Retrieval Pipeline (Hybrid + Legal Boost + Article Exact Match) | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Task 10 — Generation với Citation (OpenRouter gpt-4o-mini, history support) | ✅ Hoàn thành |
+| **Trần Quốc Khánh** | **2A202600679** | Group — RAG Chatbot (FastAPI backend + React/Vite frontend) | ✅ Hoàn thành |
+
+> **Kết quả kiểm thử:** 35/35 tests PASSED ✅
+
 
 ---
 
 ### Hướng Dẫn Chạy
 
+#### 1. Cài đặt Môi trường
+Tạo file `.env` từ file `.env.example` và điền đầy đủ các thông tin khóa API:
 ```bash
-# Cài đặt dependencies
-pip install -r requirements.txt
-
-# Chạy app
-streamlit run app.py
-# hoặc
-chainlit run app.py
+Copy-Item .env.example .env
+# Điền các khóa API vào file .env:
+# WEAVIATE_URL, WEAVIATE_API_KEY, OPENrouter_API_KEY, JINA_API_KEY, PAGEINDEX_API_KEY
 ```
+
+#### 2. Cài đặt các gói thư viện
+Cài đặt toàn bộ các thư viện được yêu cầu bằng pip:
+```bash
+pip install -r requirements.txt
+```
+
+#### 3. Chạy Pipeline và Kiểm tra
+
+*   **Bước 1: Chuyển đổi tài liệu sang Markdown (Task 3)**
+    ```bash
+    python src/task3_convert_markdown.py
+    ```
+    *Các tài liệu đã chuẩn hóa sẽ được ghi vào thư mục `data/standardized/`.*
+
+*   **Bước 2: Phân mảnh và Tạo chỉ mục (Task 4)**
+    ```bash
+    python src/task4_chunking_indexing.py
+    ```
+    *Chương trình sẽ tự động áp dụng biểu thức chính quy (Regex) để phân mảnh các điều luật và đẩy lên Weaviate Cloud, đồng thời lưu dự phòng cục bộ tại `data/vectorstore.json`.*
+
+*   **Bước 3: Chạy toàn bộ các bài kiểm thử tự động (Automated Tests)**
+    ```bash
+    pytest tests/test_individual.py -v
+    ```
+    *Kết quả mong đợi: Vượt qua toàn bộ 35/35 test case.*
 
 ---
 
