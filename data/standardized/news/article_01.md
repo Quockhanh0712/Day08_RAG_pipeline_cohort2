@@ -1,0 +1,14 @@
+# Khởi tố, bắt tạm giam ca sĩ Long Nhật, Sơn Ngọc Minh vì tổ chức sử dụng ma túy
+
+**Source:** https://baochinhphu.vn/khoi-to-bat-tam-giam-ca-si-long-nhat-son-ngoc-minh-vi-to-chuc-su-dung-ma-tuy-102260520125739676.htm
+**Crawled:** 2026-06-08T17:08:16.653413Z
+
+---
+
+# Khởi tố, bắt tạm giam ca sĩ Long Nhật, Sơn Ngọc Minh vì tổ chức sử dụng ma túy
+
+Cổng thông tin điện tử Chính phủ (baochinhphu.vn) đưa tin ngày 20/5/2026, Công an TP.HCM phối hợp cùng các đơn vị chức năng đã triệt phá một đường dây ma túy quy mô lớn trên địa bàn thành phố, khởi tố và bắt tạm giam tổng cộng 71 bị can.
+
+Trong số các đối tượng bị bắt giữ, đáng chú ý có ca sĩ Long Nhật (tên thật là Đinh Long Nhật, sinh năm 1967) và ca sĩ Sơn Ngọc Minh (sinh năm 1990). Cả hai nghệ sĩ này đều bị khởi tố về hành vi "Tổ chức sử dụng trái phép chất ma túy".
+
+Theo thông tin ban đầu từ cơ quan điều tra, vụ án được phát hiện và triệt xóa sau thời gian dài mật phục, đấu tranh chuyên án trong đợt cao điểm rà soát địa bàn. Đối tượng Kiều Quốc Nhã được xác định là một trong những mắt xích then chốt chuyên cung cấp ma túy cho nhóm của các ca sĩ này tổ chức sử dụng tại các căn hộ và tụ điểm ăn chơi. Tại cơ quan công an, bước đầu các đối tượng đều đã cúi đầu nhận tội và khai nhận toàn bộ hành vi vi phạm của mình. Hiện cơ quan cảnh sát điều tra đang tiếp tục củng cố hồ sơ, mở rộng vụ án để làm rõ vai trò của các đối tượng liên quan.
