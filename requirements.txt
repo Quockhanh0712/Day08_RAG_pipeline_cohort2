@@ -37,3 +37,11 @@ streamlit>=1.35.0
 deepeval>=1.0.0
 # ragas>=0.1.0           # Alternative
 # trulens>=1.0.0         # Alternative
+
+# Day 9 A2A Multi-Agent Framework
+a2a-sdk[http-server]>=0.3.0,<1.0
+langgraph>=0.4.1
+langchain-openai>=0.3.0
+uvicorn>=0.34.0
+httpx>=0.28.0
+pydantic>=2.11.0
